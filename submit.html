@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Request</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">SeedEdu</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="submit.html">Submit Request</a>
+            <a href="investors.html">Investor Dashboard</a>
+            <button class="connect-wallet" onclick="connectWallet()">Connect Wallet</button>
+        </nav>
+    </header>
+
+    <section class="submit-request">
+        <h2>Submit Your Scholarship Request</h2>
+        <form id="request-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="10th-marksheet">10th Mark Sheet:</label>
+            <input type="file" id="10th-marksheet" name="10th-marksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+
+            <label for="12th-marksheet">12th Mark Sheet:</label>
+            <input type="file" id="12th-marksheet" name="12th-marksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+
+            <label for="Degree">Bachelor/Diploma Degree:</label>
+            <input type="file" id="12th-marksheet" name="12th-marksheet" accept=".pdf,.jpg,.jpeg,.png" required>
+
+            <label for="career-goal">Your Career Goal:</label>
+            <textarea id="career-goal" name="career-goal" rows="4" required></textarea>
+
+            <label for="scholarship-amount">Scholarship Amount Needed:</label>
+            <input type="number" id="scholarship-amount" name="scholarship-amount" required>
+
+            <label for="achievements">Co-Curricular Achievements:</label>
+            <textarea id="achievements" name="achievements" rows="4" required></textarea>
+
+            <label for="linkedin">LinkedIn Account:</label>
+            <input type="url" id="linkedin" name="linkedin" placeholder="https://www.linkedin.com/in/your-profile" required>
+
+            <label for="drive-folder">Google Drive Folder for Certificates:</label>
+            <input type="url" id="drive-folder" name="drive-folder" placeholder="https://drive.google.com/your-folder" required>
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MeritFund. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

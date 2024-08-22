@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">SeedEdu</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="submit.html">Submit Request</a>
+            <a href="investors.html">Investor Dashboard</a>
+            <button class="connect-wallet" onclick="connectWallet()">Connect Wallet</button>
+        </nav>
+    </header>
+    <section class="investor-dashboard">
+        <h2>Dashboard</h2>
+        <div class="profile-listing">
+            <h3>Help Students</h3>
+            <div class="profile">
+                <h3>Student Name 1</h3>
+                <p>Achievements: Description...</p>
+                <button onclick="showInvestmentForm('Student Name 1')">Help</button>
+            </div>
+
+            <div class="profile">
+                <h3>Student Name 2</h3>
+                <p>Achievements: Description...</p>
+                <button onclick="showInvestmentForm('Student Name 2')">Help</button>
+            </div>
+        </div>
+
+        <div id="invest-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeInvestPopup()">&times;</span>
+                <h2>Invest in Profile</h2>
+                <label for="investment-amount">Amount:</label>
+                <input type="number" id="investment-amount" name="investment-amount">
+                <button onclick="submitInvestment()">Send</button>
+            </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MeritFund. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
