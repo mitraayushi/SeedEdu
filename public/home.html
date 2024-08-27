@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empowering Student Potential</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">SeedEdu</div>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="submit.html">Submit Request</a>
+        <a href="investors.html">Investor Dashboard</a>
+        <button class="connect-wallet" onclick="connectWallet()">
+          Connect Wallet
+        </button>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Empowering Future Leaders</h1>
+      <p>
+        Connect with investors or get crowdfunded to achieve your educational
+        goals.
+      </p>
+      <button onclick="window.location.href='submit.html'">
+        Submit Your Request
+      </button>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 MeritFund. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  <script src="https://unpkg.com/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <script>
+    
+    async function connectWallet() {
+      try {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+        // Request connection to MetaMask only when the button is clicked
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+
+        // Get the connected wallet's signer
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+
+        // Update button text to "Connected"
+        document.querySelector(".connect-wallet").innerText = "Connected";
+
+        // Store the connected address in localStorage
+        localStorage.setItem("clientAddress", address);
+        console.log("Connected wallet address:", address);
+      } catch (error) {
+        console.error("Error connecting to MetaMask:", error);
+      }
+    }
+  </script>
+</html>
