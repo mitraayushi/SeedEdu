@@ -67,15 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatBody = document.getElementById('chatBody');
   const userMessageInput = document.getElementById('userMessage');
 
-  sendMessageBtn.addEventListener('click', () => {
-      const userMessage = userMessageInput.value;
-      if (userMessage) {
-          appendMessage('user', userMessage);
-          setTimeout(() => {
-              appendMessage('bot', `You said: ${userMessage}`);
-          }, 1000);
-          userMessageInput.value = '';
-      }
+  sendMessageBtn.addEventListener('click', async() => {
+    const userMessage = userMessageInput.value;
+    if (userMessage) {
+      const response = await fetch('http://127.0.0.1:8000/chat_gen', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ prompt: userMessage }), // Use the inputText as prompt
+      });
+      const data = await response.json();
+      console.log(data.ans, "===================");
+  
+      appendMessage('user', userMessage);
+      setTimeout(() => {
+  
+        appendMessage('bot', ` ${data.ans}`);
+      }, 100);
+      userMessageInput.value = '';
+    }
   });
 
   // Function to append messages to chat
